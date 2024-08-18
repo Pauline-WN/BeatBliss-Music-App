@@ -1,15 +1,15 @@
 import React from 'react';
-import '../App.css'; // Import the global styles
+import SearchBar from './SearchBar'; // Import the SearchBar component
+import ThemeSwitcher from './ThemeSwitcher';
 
-const Header = () => {
+const Header = ({ isDarkMode, onToggleTheme, onSearch }) => {
   return (
-    <header className="header">
+    <header>
       <h1>BeatBliss</h1>
-      <nav>
-        <a href="#">Home</a>
-        <a href="#">Browse</a>
-        <a href="#">Playlist</a>
-      </nav>
+      <div className="header-content">
+        <SearchBar onSearch={onSearch} />
+        <ThemeSwitcher isDarkMode={isDarkMode} onToggleTheme={onToggleTheme} />
+      </div>
     </header>
   );
 };

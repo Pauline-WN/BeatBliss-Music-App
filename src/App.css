@@ -2,8 +2,12 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  padding-bottom: 60px; /* Adjust this to match the footer height */
+  font-size: 18px; /* Increase base font size */
 }
 
+/* Dark and Light Modes */
 .light-mode {
   background-color: #ffffff;
   color: #000000;
@@ -14,201 +18,648 @@ body {
   color: #ffffff;
 }
 
-button {
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin: 5px;
-}
-
-button:hover {
-  opacity: 0.9;
-}
-
-h2, h3 {
-  margin: 10px 0;
-}
-
 /* Header Styles */
 header {
   background-color: #333;
   color: white;
-  padding: 1rem;
-  text-align: center;
+  padding: 0.5rem 1rem; /* Reduce padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000; /* Ensures it is on top of other content */
 }
 
-header h1 {
-  margin: 0;
-  font-size: 2rem;
+header.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+header.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+header .logo {
+  font-size: 1.2rem; /* Reduce logo font size */
+  font-weight: bold;
 }
 
 header nav {
-  margin-top: 0.5rem;
+  display: flex;
+  align-items: center; /* Vertically center nav items */
 }
 
 header nav a {
-  margin: 0 1rem;
   color: white;
   text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 1rem; /* Adjust font size for nav links */
+  margin: 0 0.5rem; /* Space between nav items */
 }
 
 header nav a:hover {
   text-decoration: underline;
+  color: #007bff;
+}
+
+.header-profile {
+  background-color: #007bff;
+  color: white;
+  border-radius: 50%;
+  padding: 8px; /* Reduce padding */
+  font-size: 1rem; /* Adjust font size */
+  margin-left: 1rem; /* Space between profile and theme switcher */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center search bar horizontally within header */
+  flex: 1; /* Allow search bar to take available space */
+  max-width: 1600px; /* Increase max width for a larger search bar */
+  margin: 0; /* Remove margins */
+  padding-right: 30px;
+  padding-bottom: 5px;
+}
+
+.search-bar input {
+  padding: 12px; /* Increase padding */
+  font-size: 1rem; /* Increase font size */
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-right: 10px;
+  flex: 1;
+  max-width: 100%; /* Ensure input takes available space */
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.search-bar button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px; /* Adjust padding */
+  cursor: pointer;
+  font-size: 0.9rem; /* Reduce font size */
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #0056b3;
+}
+
+/* Theme Switcher */
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem; /* Space between theme switcher and other items */
+}
+
+.theme-switcher button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px; /* Adjust padding */
+  cursor: pointer;
+  font-size: 0.9rem; /* Reduce font size */
+  transition: background-color 0.3s ease;
+}
+
+.theme-switcher button:hover {
+  background-color: #0056b3;
 }
 
 /* Footer Styles */
 footer {
   background-color: #333;
   color: white;
-  padding: 1rem;
+  padding: 1.5rem; /* Increase padding */
   text-align: center;
   position: fixed;
   width: 100%;
   bottom: 0;
 }
 
+footer.light-mode {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+footer.dark-mode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  width: 180px; /* Increase width */
+  position: fixed;
+  top: 105px; /* Adjust based on the height of the Header */
+  bottom: 60px; /* Adjust based on the height of the Footer */
+  background-color: #f4f4f4;
+  padding: 10px; /* Increase padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar.light-mode {
+  background-color: #f4f4f4; /* Light mode background */
+  color: #333; /* Light mode text color */
+}
+
+.sidebar.dark-mode {
+  background-color: #333; /* Dark mode background */
+  color: #f4f4f4; /* Dark mode text color */
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 1.5rem; /* Increase font size for sidebar headings */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 15px 0; /* Increase spacing between items */
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: inherit; /* Inherit color from sidebar */
+  font-size: 1.2rem; /* Increase font size for sidebar links */
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Flex Container for Home Page Layout */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  margin-left: 180px; /* Adjust based on sidebar width */
+  padding-top: 80px; /* Adjust padding to accommodate smaller header */
+  margin-bottom: 60px; /* Height of the footer */
+}
+
 /* Grid Layout for Song Cards */
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Increase min width */
   gap: 20px;
   padding: 20px;
 }
 
+/* Song Card Styles */
+
+.cards-container {
+  display: flex; /* Use flexbox for alignment */
+  flex-wrap: wrap; /* Allow cards to wrap to the next line */
+  gap: 5px; /* Adjust this value to control space between cards */
+  padding: 20px; /* Padding to prevent cards from being too close to the container edges */
+  margin-left: 80px; /* Space from the sidebar */
+  margin-right: 20px; /* Space from the container edge (if needed) */
+}
+
+/* Style for individual song cards */
 .song-card {
   background-color: #f0f0f0;
-  padding: 10px;
+  padding: 15px; /* Increased padding for better spacing */
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Smooth transitions */
+  width: 200px; /* Increased width */
+  height: 250px; /* Set a fixed height for consistency */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
+/* Hover effect */
+.song-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Image styling */
 .song-card img {
-  width: 100%;
-  border-radius: 10px;
+  width: 100%; /* Image takes the full width of the card */
+  height: 150px; /* Fixed height for images to maintain aspect ratio */
+  object-fit: cover; /* Prevent image distortion */
+  border-radius: 10px; /* Rounded corners */
 }
 
+/* Title styling */
 .song-card h3 {
-  font-size: 16px;
+  font-size: 18px; /* Slightly larger font size for better readability */
   margin-top: 10px;
+  margin-bottom: 5px; /* Adjust spacing for better layout */
 }
 
+/* Description styling */
 .song-card p {
   font-size: 14px;
   color: #555;
+  margin: 0; /* Remove default margin for better alignment */
 }
 
+/* Remove flip effect */
 .song-card:hover {
-  transform: scale(1.05);
+  transform: scale(1.05); /* Slightly scale up on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
 }
+
+/* Music Note Animation */
+@keyframes musicNote {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply music note animation */
+.song-card .animation {
+  animation: musicNote 1s infinite;
+}
+
+
+/* Dark mode adjustments */
+.song-card.dark-mode .card-front {
+  background-color: #444444; /* Dark mode background */
+  color: #ffffff; /* Dark mode text color */
+}
+
+.song-card.dark-mode .card-back {
+  background-color: #333; /* Dark mode background */
+  color: #f4f4f4; /* Dark mode text color */
+}
+
+/* Image and text styles */
+.card-front img {
+  width: 100px;
+  height: 100px;
+  border-radius: 8px;
+}
+
+.card-front h3 {
+  margin: 8px 0;
+  font-size: 1.2em;
+}
+
+.card-front p {
+  margin: 0;
+  font-size: 1em;
+}
+
 
 /* Playing Now Component */
 .playing-now {
   text-align: center;
-  padding: 20px;
+  padding: 30px; /* Increase padding */
+  position: relative; /* Ensure child elements are positioned relative to this container */
 }
 
 .playing-now img {
-  width: 200px;
+  width: 250px; /* Increase image size */
+  height: auto; /* Maintain aspect ratio */
   border-radius: 10px;
+  object-fit: cover; /* Ensure the image covers the container without distortion */
+  transition: transform 0.3s ease;
+}
+
+.playing-now img:hover {
+  transform: scale(1.1);
 }
 
 .playing-now audio {
   width: 100%;
-  margin-top: 15px;
+  margin-top: 20px; /* Increase spacing above audio */
 }
 
-/* Search Bar */
-.search-bar {
+/* Controls Container */
+.controls-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  gap: 15px; /* Increase space between buttons */
+  margin-top: 20px; /* Increase space above the controls */
 }
 
-.search-bar input {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-  flex: 1;
-}
-
-.search-bar button {
+.controls-container button {
   background-color: #007bff;
   color: #ffffff;
-}
-
-/* Genre Filter */
-.genre-filter {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-}
-
-.genre-filter select {
-  padding: 10px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-/* My Playlist */
-.my-playlist {
-  padding: 20px;
-}
-
-.my-playlist h2 {
+  border: none;
+  border-radius: 5px; /* Updated border-radius for consistency */
+  padding: 15px 25px; /* Increase padding */
   cursor: pointer;
-  text-align: center;
+  font-size: 18px; /* Increase font size */
+  transition: background-color 0.3s ease;
 }
 
+.controls-container button:hover {
+  background-color: #0056b3;
+}
+
+/* Light and Dark Mode for Controls */
+.light-mode .controls-container button {
+  background-color: #007bff;
+}
+
+.dark-mode .controls-container button {
+  background-color: #555;
+}
+
+.dark-mode .controls-container button:hover {
+  background-color: #333;
+}
+
+/* Add to Playlist Button Specific Styles */
+.add-to-playlist-button {
+  background-color: #007bff; /* Default background color for light mode */
+  color: #ffffff; /* Default text color */
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px; /* Adjust padding */
+  cursor: pointer;
+  font-size: 16px; /* Adjust font size */
+  transition: background-color 0.3s ease;
+}
+
+.add-to-playlist-button:hover {
+  background-color: #0056b3;
+}
+
+/* Light and Dark Mode for Add to Playlist Button */
+.light-mode .add-to-playlist-button {
+  background-color: #007bff;
+}
+
+.dark-mode .add-to-playlist-button {
+  background-color: #555;
+}
+
+.dark-mode .add-to-playlist-button:hover {
+  background-color: #333;
+}
+
+/* Playlist Section */
+.my-playlist {
+  padding: 30px; /* Increase padding */
+}
+
+/* Playlist item container */
 .playlist-item {
   display: flex;
-  align-items: center;
-  padding: 10px;
-  background-color: #f0f0f0;
-  border-radius: 10px;
-  margin-bottom: 10px;
+  justify-content: space-between; /* Ensures space between song info and button */
+  align-items: center; /* Vertically centers content */
+  padding: 15px; /* Increase padding */
+  border-bottom: 1px solid #ddd; /* Example border */
+  margin-bottom: 10px; /* Increase space between items */
 }
 
+/* Styling for the song image */
 .playlist-item img {
-  width: 50px;
-  border-radius: 5px;
-  margin-right: 10px;
+  width: 70px; /* Increase image size */
+  height: 70px; /* Increase image size */
+  margin-right: 15px; /* Increase space between image and text */
 }
 
-.playlist-item button {
-  background-color: #ff4d4d;
-  color: #ffffff;
+/* Song information container */
+.playlist-item .song-info {
+  flex: 1; /* Takes up remaining space */
+  display: flex;
+  align-items: center; /* Vertically centers text with image */
 }
 
-/* Theme Switcher */
-.theme-switcher {
-  text-align: center;
-  padding: 10px;
+/* Remove button styling */
+.playlist-item .remove-button {
+  background-color: #e74c3c; /* Red background */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px; /* Increase padding */
+  cursor: pointer;
+  font-size: 16px; /* Increase font size */
 }
 
-.theme-switcher button {
-  background-color: #007bff;
-  color: #ffffff;
+.playlist-item .remove-button:hover {
+  background-color: #c0392b; /* Darker red on hover */
 }
 
 /* Share Playlist */
 .share-playlist {
   text-align: center;
-  padding: 20px;
+  padding: 30px; /* Increase padding */
 }
 
 .share-playlist button {
   background-color: #007bff;
   color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 25px; /* Increase padding */
+  cursor: pointer;
+  font-size: 18px; /* Increase font size */
+  transition: background-color 0.3s ease;
 }
 
-/* Ensure Footer Doesn't Overlap Content */
-body {
-  margin: 0;
-  padding-bottom: 60px; /* Adjust this to match the footer height */
+.share-playlist button:hover {
+  background-color: #0056b3;
+}
+
+/* About Section */
+.about-container {
+  padding: 20px;
+  max-width: 1200px; /* Increased for larger screens */
+  margin: auto;
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.about-title {
+  font-size: 2.5em; /* Larger title for emphasis */
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out forwards;
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column; /* Stacks image and description vertically */
+  align-items: center;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px; /* Limits width on larger screens */
+  height: 400px;
+  margin-bottom: 20px;
+  animation: slideInFromTop 1s ease-out;
+}
+
+.about-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.image-container:hover .about-image {
+  transform: scale(1.05);
+}
+
+.overlay-text {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+  font-size: 24px;
+  font-style: oblique;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  border-radius: 5px;
+}
+
+.about-description {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-top: 20px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.features {
+  margin: 20px 0;
+  text-align: left;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.features h3 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1.5s forwards;
+}
+
+.feature-icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px;
+  transition: color 0.3s ease;
+}
+
+.features li:hover .feature-icon {
+  color: #007bff;
+}
+
+.about p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 2s forwards;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    font-size: 16px; /* Adjust base font size for smaller screens */
+  }
+
+  .sidebar {
+    width: 100%; /* Adjust width for smaller screens */
+    padding: 20px; /* Adjust padding */
+  }
+
+  .main-content {
+    margin-left: 0; /* Adjust margin */
+    padding-top: 120px; /* Adjust padding */
+  }
+
+  .about-title {
+    font-size: 2.5em; /* Adjust for smaller screens */
+  }
+
+  .features h3 {
+    font-size: 1.5em; /* Adjust for smaller screens */
+  }
+
+  .features li {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature-icon {
+    margin-bottom: 5px;
+  }
 }

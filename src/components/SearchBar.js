@@ -3,10 +3,13 @@ import debounce from 'lodash.debounce';
 
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
-  const debouncedSearch = debounce(onSearch, 500);
+  
+  // Ensure onSearch is a function before debouncing it
+  const debouncedSearch = React.useMemo(() => debounce(onSearch, 500), [onSearch]);
 
-  const handleSearch = () => {
-    debouncedSearch(query);
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+    debouncedSearch(e.target.value);
   };
 
   return (
@@ -14,10 +17,9 @@ const SearchBar = ({ onSearch }) => {
       <input
         type="text"
         value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        onChange={handleChange}
         placeholder="Search for songs or artists"
       />
-      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };
