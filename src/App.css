@@ -207,8 +207,7 @@ footer {
   color: #ffffff;
 }
 
-/* Ensure Footer Doesn't Overlap Content */
 body {
   margin: 0;
-  padding-bottom: 60px; /* Adjust this to match the footer height */
+  padding-bottom: 60px; 
 }
