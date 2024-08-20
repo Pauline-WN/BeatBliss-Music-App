@@ -11,7 +11,7 @@ const PlayingNow = ({
   isShuffling,
   isLooping,
   isReplaying,
-  isDarkMode // Add isDarkMode prop
+  isDarkMode 
 }) => {
   const audioRef = useRef(null);
 

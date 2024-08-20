@@ -4,7 +4,6 @@ import debounce from 'lodash.debounce';
 const SearchBar = ({ onSearch }) => {
   const [query, setQuery] = useState('');
   
-  // Ensure onSearch is a function before debouncing it
   const debouncedSearch = React.useMemo(() => debounce(onSearch, 500), [onSearch]);
 
   const handleChange = (e) => {
