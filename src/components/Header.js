@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; // Import the global styles
+import '../App.css'; 
 
 const Header = () => {
   return (
